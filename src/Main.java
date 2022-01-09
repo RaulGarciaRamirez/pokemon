@@ -6,30 +6,30 @@ public class Main {
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-//		int opcion;
-//		do {
-//			System.out.println("Elija la opción:");
-//			System.out.println("1. Utilizar los pokémon del juego");
-//			System.out.println("2. Crear los pokémon aleatoriamente");
-//			System.out.println("3. Salir");
-//			opcion = Main.scanner.nextInt();
-//
-//			if (opcion == 1) {
-//				Main.initPokemon();
-//				Main.initCombat();
-//			} else if (opcion == 2) {
-//				Main.initPokemonRandomly();
-//				Main.initCombat();
-//			} else if (opcion == 3) {
-//
-//			} else {
-//				System.out.println("Opción incorrecta");
-//			}
-//
-//		} while (opcion != 3);
-//
-//		System.out.println("Saliendo del programa...");
-		Main.initMultiCombat();
+		int opcion;
+		do {
+			System.out.println("Elija la opción:");
+			System.out.println("1. Utilizar los pokémon del juego");
+			System.out.println("2. Crear los pokémon aleatoriamente");
+			System.out.println("3. Salir");
+			opcion = Main.scanner.nextInt();
+
+			if (opcion == 1) {
+				Main.initPokemon();
+				Main.initCombat();
+			} else if (opcion == 2) {
+				Main.initPokemonRandomly();
+				Main.initCombat();
+			} else if (opcion == 3) {
+
+			} else {
+				System.out.println("Opción incorrecta");
+			}
+
+		} while (opcion != 3);
+
+		System.out.println("Saliendo del programa...");
+//		Main.initMultiCombat();
 	}
 
 	private static void initPokemon() {
