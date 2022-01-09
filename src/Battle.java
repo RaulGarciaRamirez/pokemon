@@ -36,4 +36,5 @@ public class Battle {
 		return pokemon1.getName() + " daña " + pokemon1.getStrength() + " a " + pokemon2.getName() + " y a "
 				+ pokemon2.getName() + " le queda " + pokemon2.getHealth() + " vida.";
 	}
+
 }

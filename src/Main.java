@@ -4,31 +4,32 @@ public class Main {
 	private static final int NUM_POKEMON = 5;
 	private static Pokemon[] pokemon = new Pokemon[NUM_POKEMON];
 	private static Scanner scanner = new Scanner(System.in);
-	
+
 	public static void main(String[] args) {
-		int opcion;
-		do {
-			System.out.println("Elija la opción:");
-			System.out.println("1. Utilizar los pokémon del juego");
-			System.out.println("2. Crear los pokémon aleatoriamente");
-			System.out.println("3. Salir");
-			opcion = Main.scanner.nextInt();
-
-			if (opcion == 1) {
-				Main.initPokemon();
-				Main.initCombat();
-			} else if (opcion == 2) {
-				Main.initPokemonRandomly();
-				Main.initCombat();
-			} else if (opcion == 3) {
-
-			} else {
-				System.out.println("Opción incorrecta");
-			}
-
-		} while (opcion != 3);
-		
-		System.out.println("Saliendo del programa...");
+//		int opcion;
+//		do {
+//			System.out.println("Elija la opción:");
+//			System.out.println("1. Utilizar los pokémon del juego");
+//			System.out.println("2. Crear los pokémon aleatoriamente");
+//			System.out.println("3. Salir");
+//			opcion = Main.scanner.nextInt();
+//
+//			if (opcion == 1) {
+//				Main.initPokemon();
+//				Main.initCombat();
+//			} else if (opcion == 2) {
+//				Main.initPokemonRandomly();
+//				Main.initCombat();
+//			} else if (opcion == 3) {
+//
+//			} else {
+//				System.out.println("Opción incorrecta");
+//			}
+//
+//		} while (opcion != 3);
+//
+//		System.out.println("Saliendo del programa...");
+		Main.initMultiCombat();
 	}
 
 	private static void initPokemon() {
@@ -68,5 +69,41 @@ public class Main {
 
 		Battle.initBattle(pokemon1, pokemon2);
 	}
-	
+
+	private static void initMultiCombat() {
+		int contadorMuertes1 = 0;
+		int contadorMuertes2 = 0;
+
+		do {
+
+			Main.initPokemon();
+			Pokemon[] equipo1 = pokemon;
+			Main.showPokemonMulti(equipo1);
+			System.out.println("Elija Pokémon del equipo 1");
+			Pokemon pokemon1 = pokemon[Main.scanner.nextInt() - 1];
+
+			Main.initPokemonRandomly();
+			Pokemon[] equipo2 = pokemon;
+			Main.showPokemonMulti(equipo2);
+			System.out.println("Elija Pokémon del equipo 2");
+			Pokemon pokemon2 = pokemon[Main.scanner.nextInt() - 1];
+			
+			Battle.initBattle(pokemon1, pokemon2);
+
+			if (pokemon1.getHealth() <= 0) {
+				contadorMuertes1++;
+			}
+			if (pokemon2.getHealth() <= 0) {
+				contadorMuertes2++;
+			}
+
+		} while (contadorMuertes1 != 5 && contadorMuertes2 != 5);
+
+	}
+
+	private static void showPokemonMulti(Pokemon[] pokemon) {
+		for (int i = 0; i < pokemon.length; i++) {
+			System.out.println((i + 1) + ". " + pokemon[i].getName());
+		}
+	}
 }
