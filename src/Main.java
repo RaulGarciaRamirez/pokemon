@@ -68,4 +68,5 @@ public class Main {
 
 		Battle.initBattle(pokemon1, pokemon2);
 	}
+	
 }
